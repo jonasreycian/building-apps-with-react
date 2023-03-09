@@ -10,10 +10,8 @@ export default function Header() {
         CartStore.subscribe(() => {
             const state = CartStore.getState();
             if (state) {
-                state.then((state) => {
-                    const itemCount = state.cart.map(item => item.quantity).reduce((p, n) => p + n, 0);
-                    setItemCount(itemCount);
-                });
+                const itemCount = state.cart.map(item => item.quantity).reduce((p, n) => p + n, 0);
+                setItemCount(itemCount);
             }
         });
     }, []);
