@@ -1,62 +1,126 @@
-const CartReducer = (state = { cart: [] }, action) => {
+import UuidStore from "./UuidStore";
+
+const CartReducer = async (state = { cart: [] }, action) => {
     let cart = state.cart;
+    let response;
 
     switch (action.type) {
         case "add": 
-            if (cart.find(item => item.id === action.payload.id)) {
-                let newCart = cart.filter(item => {
-                    if (item.id === action.payload.id) {
-                        item.quantity++;
+            await fetch(
+                "http://localhost:3333/cart",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-SESSION-TOKEN": UuidStore.value
+                    },
+                    body: JSON.stringify({
+                        id: action.payload.id
+                    })
+                }
+            );
+            response = await fetch(
+                "http://localhost:3333/cart",
+                {
+                    method: "GET",
+                    headers: {
+                        "X-SESSION-TOKEN": UuidStore.value
                     }
-                    return item;
-                });
-                return {
-                    ...state,
-                    cart: newCart
-                };
-            } else {
-                action.payload.quantity = 1;
-                cart.push(action.payload);
-                return {
-                    ...state,
-                    cart: cart
-                };
-            }
-        case "update":
-            if (cart.find(item => item.id === action.payload.id)) {
-                let newCart = cart.filter(item => {
-                    if (item.id === action.payload.id) {
-                        item.quantity = action.payload.quantity;
-                    }
-                    return item.quantity > 0 ? item : null;
-                });
-                return {
-                    ...state,
-                    cart: newCart
-                };
-            } else {
-                return {
-                    ...state,
-                    cart: cart
-                };
-            }
-        case "delete":
-            if (cart.find(item => item.id === action.payload.id)) {
-                let newCart = cart.filter(item => item.id !== action.payload.id);
-                return {
-                    ...state,
-                    cart: newCart
-                };
-            } else {
-                return {
-                    ...state,
-                    cart: cart
-                };
-            }
-        case "clear":
+                }
+            );
+
+            cart = await response.json();
             return {
                 ...state,
-                cart: []
+                cart: cart
+            };
+ 
+        case "update":
+            if (action.payload.quantity === 0) {
+                await fetch(
+                    "http://localhost:3333/cart", {
+                        method: "DELETE",
+                        headers: { 
+                            "Content-Type": "application/json",
+                            "X-SESSION-TOKEN": UuidStore.value
+                        },
+                        body: JSON.stringify({
+                            id: action.payload.event_id
+                        })
+                    });
+            } else {
+                await fetch(
+                    "http://localhost:3333/cart", {
+                        method: "PATCH",
+                        headers: { 
+                            "Content-Type": "application/json",
+                            "X-SESSION-TOKEN": UuidStore.value
+                        },
+                        body: JSON.stringify({
+                            id: action.payload.event_id,
+                            quantity: action.payload.quantity
+                        })
+                    });    
+            }
+            response = await fetch(
+                "http://localhost:3333/cart", {
+                    method: "GET",
+                    headers: { 
+                        "X-SESSION-TOKEN": UuidStore.value
+                    }
+                });
+                
+            cart = await response.json();
+            return {
+                ...state,
+                cart: cart
+            };
+        case "delete":
+            await fetch(
+                "http://localhost:3333/cart", {
+                    method: "DELETE",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "X-SESSION-TOKEN": UuidStore.value
+                    },
+                    body: JSON.stringify({
+                        id: action.payload.event_id
+                    })
+                });
+            response = await fetch(
+                "http://localhost:3333/cart", {
+                    method: "GET",
+                    headers: { 
+                        "X-SESSION-TOKEN": UuidStore.value
+                    }
+                });
+                
+            cart = await response.json();
+            return {
+                ...state,
+                cart: cart
+            };
+        case "clear":
+            await fetch(
+                "http://localhost:3333/cart", {
+                    method: "DELETE",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "X-SESSION-TOKEN": UuidStore.value
+                    }
+                });
+            response = await fetch(
+                "http://localhost:3333/cart", {
+                    method: "GET",
+                    headers: { 
+                        "X-SESSION-TOKEN": UuidStore.value
+                    }
+                });
+                
+            cart = await response.json();
+            return {
+                ...state,
+                cart: cart
             };
         default:
             return {
