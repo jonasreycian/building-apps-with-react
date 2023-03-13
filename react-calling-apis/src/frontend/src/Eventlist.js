@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useSWR from "swr";
 import Eventitem from "./Eventitem";
+import { fetcher } from "./SwrHelper";
 
 export default function Eventlist() {
-  const [events, setEvents] = useState([]);
+  const { data } = useSWR("http://localhost:3333/events", fetcher);
 
-  useEffect(() => {
-    fetch("http://localhost:3333/events")
-      .then(response => response.json())
-      .then(data => {
-        setEvents(data);
-      });
-  }, [])
+  if (!data) {
+    return (
+      <div className="container mt-5">Loading ...</div>
+    );
+  }
 
   return (
     <div className="container" id="eventtable">
@@ -28,7 +28,7 @@ export default function Eventlist() {
           </thead>
           <tbody>
             {
-              events.map(event => (
+              data.map(event => (
                 <Eventitem event={event} key={event.id} />
               ))
             }

@@ -8,12 +8,12 @@ import Confirmation from "./Confirmation";
 
 function App() {
   return (
-    <Router>
+   <Router>
       <Header />
       <Route exact path="/" component={Eventlist} />
       <Route exact path="/cart" component={Shoppingcart} />
       <Route exact path="/confirm" component={Confirmation} />
-    </Router>
+   </Router>
   );
 }
 
