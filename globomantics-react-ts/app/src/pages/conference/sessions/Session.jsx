@@ -3,14 +3,12 @@ import { SessionDetails } from "./SessionDetails";
 
 export function Session() {
   return (
-    <>
-      <section className="banner">
-        <div className="container">
-          <div className="row">
-            <SessionDetails />
-          </div>
+    <section className="banner">
+      <div className="container">
+        <div className="row">
+          <SessionDetails />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
