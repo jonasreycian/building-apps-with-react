@@ -12,6 +12,7 @@ export const CREATE_SESSION = gql`
 `;
 
 export function SessionForm() {
+  const history = useHistory();
   const [create] = useMutation(CREATE_SESSION);
 
   return (
@@ -31,7 +32,7 @@ export function SessionForm() {
           format: "",
           level: "",
         }}
-        onSubmit={async values => {
+        onSubmit={async (values) => {
           await create({ variables: { session: values } });
         }}
       >
