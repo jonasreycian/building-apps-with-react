@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "The Shawshank Redemption",
+      "price": 9.99,
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+    },
+    {
+      "id": 2,
+      "title": "Back to the Future",
+      "price": 9.99,
+      "description": "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown."
+    },
+    {
+      "id": 3,
+      "title": "Inception 3",
+      "price": 9.99,
+      "description": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO."
+    }
+  ]
+}
