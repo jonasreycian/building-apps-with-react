@@ -1,4 +1,10 @@
 {
+  "dashboard": {
+    "posts": 5,
+    "likes": 2,
+    "followers": 20,
+    "following": 3000
+  },
   "products": [
     {
       "id": 1,
@@ -17,6 +23,35 @@
       "title": "Inception 3",
       "price": 9.99,
       "description": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO."
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "News Article 1",
+      "description": "This is the description of the news article 1",
+      "category": "sports"
+    },
+
+    {
+      "id": 2,
+      "title": "News Article 2",
+      "description": "This is the description of the news article 2",
+      "category": "politics"
+    },
+
+    {
+      "id": 3,
+      "title": "News Article 3",
+      "description": "This is the description of the news article 3",
+      "category": "sports"
+    },
+
+    {
+      "id": 4,
+      "title": "News Article 4",
+      "description": "This is the description of the news article 4",
+      "category": "games"
     }
   ]
 }
