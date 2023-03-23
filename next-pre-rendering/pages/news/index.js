@@ -19,9 +19,6 @@ export async function getServersideProps() {
   const res = await fetch("http://localhost:4000/news");
   const data = await res.json();
 
-  console.log("Generating / Regenerating page for news");
-  console.log(object);
-
   return {
     props: {
       articles: data,

@@ -1,4 +1,76 @@
 {
+  "events": [
+    {
+      "id": 1,
+      "title": "Event 1",
+      "description": "This is the description of the event 1",
+      "category": "sports",
+      "date": "Jan 1"
+    },
+    {
+      "id": 2,
+      "title": "Event 2",
+      "description": "This is the description of the event 2",
+      "category": "sports",
+      "date": "Feb 2"
+    },
+    {
+      "id": 3,
+      "title": "Event 3",
+      "description": "This is the description of the event 3",
+      "category": "ai",
+      "date": "march 2"
+    },
+    {
+      "id": 4,
+      "title": "Event 4",
+      "description": "This is the description of the event 4",
+      "category": "food",
+      "date": "April 2"
+    },
+    {
+      "id": 5,
+      "title": "Event 5",
+      "description": "This is the description of the event 5",
+      "category": "sports",
+      "date": "May 2"
+    },
+    {
+      "id": 6,
+      "title": "Event 6",
+      "description": "This is the description of the event 6",
+      "category": "ai",
+      "date": "June 2"
+    },
+    {
+      "id": 7,
+      "title": "Event 7",
+      "description": "This is the description of the event 7",
+      "category": "food",
+      "date": "July 2"
+    },
+    {
+      "id": 8,
+      "title": "Event 8",
+      "description": "This is the description of the event 8",
+      "category": "ai",
+      "date": "August 2"
+    },
+    {
+      "id": 9,
+      "title": "Event 9",
+      "description": "This is the description of the event 2",
+      "category": "sports",
+      "date": "Feb 2"
+    },
+    {
+      "id": 10,
+      "title": "Event 2",
+      "description": "This is the description of the event 2",
+      "category": "sports",
+      "date": "Feb 2"
+    }
+  ],
   "dashboard": {
     "posts": 5,
     "likes": 2,
