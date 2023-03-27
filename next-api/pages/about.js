@@ -1,13 +1,23 @@
 import styles from "@/styles/About.module.scss";
+import Footer from "@/components/Footer";
 
 export default function About() {
   return (
     <>
-      <body>
+      <div className="content">
         <button className={`btn btn-primary ${styles.highlight}`}>
           Primary
         </button>
-      </body>
+      </div>
     </>
   );
 }
+
+About.getLayout = function getLayout(page) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  );
+};
