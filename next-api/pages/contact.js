@@ -1,5 +1,10 @@
-import styles from "@/styles/Contact.module.css";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font -size: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+`;
 
 export default function Contact() {
-  return <h2 className={styles.highlight}>Contact Page</h2>;
+  return <Title>Styled Compoents</Title>;
 }
