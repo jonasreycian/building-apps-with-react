@@ -6,6 +6,8 @@ export default function handler(req, res) {
     (comment) => comment.id === commentId
   );
 
+  console.log(`commentId from handler: ${commentId}`);
+
   if (req.method === "DELETE") {
     if (commentIndex >= 0) {
       comments.splice(commentIndex, 1);
